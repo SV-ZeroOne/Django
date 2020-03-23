@@ -43,14 +43,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Resume</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/blog">Blog</a>
+                        <a class="nav-link active" href="#">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">LinkedIn</a>
@@ -61,48 +61,22 @@
     </header>
 
     <main role="main">
+        <div class="container">
+            <h1 class='text-center pt-3'>Welcome to Steve's Blog</h1>
+            <br />
+            <br />
+            <h2>Latest Posts</h2>
+            <hr />
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1>Hi, I'm Steve.</h1>
-                <p class="lead text-muted">
-                    Hello World, my name is Steve Velcev and welcome to my Python Django Website.
-                </p>
-                <p>
-                    <a href="mailto:" class="btn btn-primary my-2">Email Me</a>
-                </p>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-
-                    {% for job in jobs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <!--
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                focusable="false" role="img" aria-label="Placeholder: Thumbnail">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Thumbnail</text>
-                            </svg>
-                            -->
-                            <img class="card-img-top" src="{{ job.image.url }}" width="100%" height="400"/>
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-                </div>
-            </div>
+            {% for blog in blogs.all %}
+            <a href=""><h3>{{ blog.title }}</h3></a>
+            {{ blog.pub_date_pretty }}
+            <br />
+            <img class="img-fluid".image src="{{ blog.image.url }}" height="200" width="200"/>
+            <br />
+            <p>{{ blog.summary }}</p>
+            {% endfor %}
         </div>
-
     </main>
 
     <footer class="text-muted">
