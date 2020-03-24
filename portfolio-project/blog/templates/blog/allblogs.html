@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Album example · Bootstrap</title>
+    <title>Steve's Blog</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -44,16 +45,16 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Resume</a>
+                        <a class="nav-link" href="{% static 'Steve_V.jpg'%}">Resume</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Blog</a>
+                        <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">LinkedIn</a>
+                        <a class="nav-link" href="https://za.linkedin.com/in/steve-velcev-ba8a8025">LinkedIn</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +70,7 @@
             <hr />
 
             {% for blog in blogs.all %}
-            <a href=""><h3>{{ blog.title }}</h3></a>
+            <a href="{% url 'detail' blog.id%}"><h3>{{ blog.title }}</h3></a>
             {{ blog.pub_date_pretty }}
             <br />
             <img class="img-fluid".image src="{{ blog.image.url }}" height="200" width="200"/>
