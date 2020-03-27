@@ -4,7 +4,6 @@
 
 # Ignore my virtual environment folder
 /myvenv
-/productenv
 
 ### Django ###
 *.log
