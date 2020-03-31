@@ -18,9 +18,12 @@ class Product(models.Model):
 
 
     def summary(self):
-        return self.body[:100]
+        return self.body[:100] + '...'
 
 
     def pub_date_pretty(self):
         return self.pub_date.strftime('%b %e %Y')
 
+
+# Vote only once model that is called vote and has 2 foreign keys - product and user
+# https://www.udemy.com/course/the-ultimate-beginners-guide-to-django-django-2-python-web-dev-website/learn/lecture/16349436#questions
